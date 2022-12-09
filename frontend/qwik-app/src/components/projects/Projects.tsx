@@ -154,9 +154,9 @@ export default component$(() => {
             <span>Refresh</span>
           </button>
         </div>
-        <div class="flex">
+        <div class="flex md-lg:flex-row flex-col">
           <div
-            class="w-2/3 h-96 border-r border-gray-800 relative overflow-hidden"
+            class="md-lg:w-2/3 h-96 border-r border-gray-800 relative overflow-hidden"
             ref={CarouselWidth}
           >
             <div
@@ -245,11 +245,11 @@ export default component$(() => {
               </svg>
             </button>
           </div>
-          <div class="project-details w-1/3 flex flex-col justify-center gap-3 p-10">
-            <h1 class="font-semibold text-3xl">
+          <div class="project-details md-lg:w-1/3 flex sm:flex-row flex-col md-lg:flex-col md-lg:items-start items-center justify-center text-center gap-3 p-10">
+            <h1 class="font-semibold text-xl lg:text-3xl">
               <span>{FilteredProjs[ActiveProjectIndex.value].Title}</span>
             </h1>
-            <p>{FilteredProjs[ActiveProjectIndex.value].Description}</p>
+            <p class="md-lg:border-none text-gray-400 md-lg:text-left text-center text-sm md-lg:text-md px-0 sm:px-3 md-lg:px-0 sm:border-x border-gray-600">{FilteredProjs[ActiveProjectIndex.value].Description}</p>
             <a
               href={FilteredProjs[ActiveProjectIndex.value].Url}
               class="px-6 py-2 w-fit bg-violet-500 text-sm rounded-full active:scale-95 hover:bg-violet-600 transition-all duration-250"

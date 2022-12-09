@@ -50,18 +50,19 @@ export default component$(() => {
           Events
         </h1>
       </div>
-      <div className="w-5/6">
+      <div className="xl:w-5/6 w-full flex flex-col">
         {events.events.map(({ Title, Description, Date, TextDate }, index) => (
           <li
-            class={`w-full flex border-gray-800${
+            class={`w-full flex md-lg:flex-row flex-col border-gray-800${
               events.events.length !== index + 1 ? " border-b " : " "
-            }justify-between items-center gap-10 px-12 py-16 list-none`}
+            }justify-between md-lg:items-center gap-2 lg:gap-10 px-6 sm:px-12 py-10 lg:py-16 list-none`}
           >
-            <div class="flex gap-8 items-center">
+            <div class="flex max-w-full md-lg:max-w-[75%] gap-4 lg:gap-8 items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
                 height="32"
+                class="w-16 sm:w-8"
                 fill={EventUrgencyHandler(Date)}
                 viewBox="0 0 16 16"
               >
@@ -69,11 +70,11 @@ export default component$(() => {
                 <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
               </svg>
               <div className="flex flex-col">
-                <h2 class="text-3xl font-semibold">{Title}</h2>
-                <p class="text-gray-400">{Description}</p>
+                <h2 class="text-xl lg:text-3xl font-semibold">{Title}</h2>
+                <p class="text-gray-400 text-sm sm:text-md">{Description}</p>
               </div>
             </div>
-            <span class="text-gray-600">{TextDate}</span>
+            <span class="text-gray-600 text-center">{TextDate}</span>
           </li>
         ))}
       </div>
