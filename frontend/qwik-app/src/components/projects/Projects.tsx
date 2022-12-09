@@ -71,14 +71,15 @@ export default component$(() => {
       },
     ],
   });
+  const ProjectFilterHandler = projects.projects.filter(
+    (proj) =>
+      proj.Title.includes(SearchInputValue.value) ||
+      proj.Description.includes(SearchInputValue.value)
+  );
   const FilteredProjs =
-    SearchInputValue.value.length === 0
+    ProjectFilterHandler.length === 0
       ? projects.projects
-      : projects.projects.filter(
-          (proj) =>
-            proj.Title.includes(SearchInputValue.value) ||
-            proj.Description.includes(SearchInputValue.value)
-        );
+      : ProjectFilterHandler;
   return (
     <div class="Projects w-full border-b border-gray-800">
       <div
@@ -129,7 +130,7 @@ export default component$(() => {
           </label>
           <button
             className={`${
-              FilteredProjs.length !== projects.projects.length
+              ProjectFilterHandler.length !== projects.projects.length
                 ? "flex"
                 : "hidden"
             } justify-center items-center gap-2 refresh px-6 py-2 w-fit bg-violet-500 text-sm rounded-full active:scale-95 hover:bg-violet-600 transition-all duration-250`}
@@ -151,7 +152,12 @@ export default component$(() => {
               />
               <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
             </svg>
-            <span>Refresh</span>
+            <span>
+              {FilteredProjs.length === projects.projects.length &&
+              SearchInputValue.value !== ""
+                ? "Not In Projects"
+                : "Refresh"}
+            </span>
           </button>
         </div>
         <div class="flex md-lg:flex-row flex-col">
@@ -249,7 +255,9 @@ export default component$(() => {
             <h1 class="font-semibold text-xl lg:text-3xl">
               <span>{FilteredProjs[ActiveProjectIndex.value].Title}</span>
             </h1>
-            <p class="md-lg:border-none text-gray-400 md-lg:text-left text-center text-sm md-lg:text-md px-0 sm:px-3 md-lg:px-0 sm:border-x border-gray-600">{FilteredProjs[ActiveProjectIndex.value].Description}</p>
+            <p class="md-lg:border-none text-gray-400 md-lg:text-left text-center text-sm md-lg:text-md px-0 sm:px-3 md-lg:px-0 sm:border-x border-gray-600">
+              {FilteredProjs[ActiveProjectIndex.value].Description}
+            </p>
             <a
               href={FilteredProjs[ActiveProjectIndex.value].Url}
               class="px-6 py-2 w-fit bg-violet-500 text-sm rounded-full active:scale-95 hover:bg-violet-600 transition-all duration-250"

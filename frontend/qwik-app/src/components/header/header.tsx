@@ -65,9 +65,12 @@ export default component$(() => {
               <p class="text-md sm:text-xl font-medium text-gray-400">
                 An Open Minded Student, Soon-to-be Fullstack Dev
               </p>
-              <button class="px-5 py-2 sm:text-md text-sm bg-violet-600 font-semibold w-fit hover:bg-violet-800 active:scale-95 transition-all ease duration-250 rounded-full">
+              <a
+                href="#About"
+                class="px-5 py-2 sm:text-md text-sm bg-violet-600 font-semibold w-fit hover:bg-violet-800 active:scale-95 transition-all ease duration-250 rounded-full"
+              >
                 SHOW MORE
-              </button>
+              </a>
             </div>
           </div>
           <div class="w-full flex justify-around h-fit p-5 border-t border-gray-800 text-gray-400">
