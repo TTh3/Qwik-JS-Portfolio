@@ -1,4 +1,4 @@
-# Qwik App ⚡️
+# QwikJS Modern Portfolio by Jaylord Silverio ⚡️
 
 - [Qwik Docs](https://qwik.builder.io/)
 - [Discord](https://qwik.builder.io/chat)
