@@ -1,12 +1,7 @@
-import { component$, useSignal, useStore } from "@builder.io/qwik";
+import { component$, useSignal, useStore, useWatch$ } from "@builder.io/qwik";
 
 export default component$(() => {
-  const CarouselWidth = useSignal<Element>();
-  const CarouselStyle = useSignal(0);
-  const ActiveProjectIndex = useSignal(0);
-  const SearchInputValue = useSignal("");
-  const SearchInput = useSignal<HTMLInputElement>();
-  const projects = useStore({
+  const ProjectList = {
     projects: [
       {
         Id: "0",
@@ -70,16 +65,30 @@ export default component$(() => {
           "This is my first personal project using fully NextJS and a sprinkle of TailwindCSS for the styling.",
       },
     ],
+  };
+  const CarouselWidth = useSignal<Element>();
+  const CarouselStyle = useSignal(0);
+  const ActiveProjectIndex = useSignal(0);
+  const SearchInputValue = useSignal("");
+  const SearchInput = useSignal<HTMLInputElement>();
+  const FilteredProjs = useStore({ ...ProjectList });
+
+  useWatch$(({ track }) => {
+    const ChangedInProjects = track(() => SearchInputValue.value);
+    const ProjectFilterHandler = ProjectList.projects.filter(
+      (proj) =>
+        proj.Title.includes(ChangedInProjects) ||
+        proj.Description.includes(ChangedInProjects)
+    );
+    if (ProjectFilterHandler.length === 0) {
+      FilteredProjs.projects = ProjectList.projects;
+      return;
+    }
+    ActiveProjectIndex.value = 0;
+    CarouselStyle.value = 0;
+    FilteredProjs.projects = ProjectFilterHandler;
+
   });
-  const ProjectFilterHandler = projects.projects.filter(
-    (proj) =>
-      proj.Title.includes(SearchInputValue.value) ||
-      proj.Description.includes(SearchInputValue.value)
-  );
-  const FilteredProjs =
-    ProjectFilterHandler.length === 0
-      ? projects.projects
-      : ProjectFilterHandler;
   return (
     <div class="Projects w-full border-b border-gray-800">
       <div
@@ -130,7 +139,7 @@ export default component$(() => {
           </label>
           <button
             className={`${
-              ProjectFilterHandler.length !== projects.projects.length
+              FilteredProjs.projects.length !== ProjectList.projects.length
                 ? "flex"
                 : "hidden"
             } justify-center items-center gap-2 refresh px-6 py-2 w-fit bg-violet-500 text-sm rounded-full active:scale-95 hover:bg-violet-600 transition-all duration-250`}
@@ -153,8 +162,8 @@ export default component$(() => {
               <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
             </svg>
             <span>
-              {FilteredProjs.length === projects.projects.length &&
-              SearchInputValue.value !== ""
+              {FilteredProjs.projects.length === ProjectList.projects.length &&
+              SearchInput.value?.value !== ""
                 ? "Not In Projects"
                 : "Refresh"}
             </span>
@@ -169,7 +178,7 @@ export default component$(() => {
               className="left-0 transtion-all duration-500 w-full mx-auto whitespace-nowrap relative"
               style={`left: -${CarouselStyle.value}px;`}
             >
-              {FilteredProjs.map(({ Image, Title }) => {
+              {FilteredProjs.projects.map(({ Image, Title }) => {
                 return (
                   <div className={`slide w-full inline-block relative`}>
                     <img
@@ -183,7 +192,8 @@ export default component$(() => {
             </div>
             <button
               class={`prev absolute bottom-5 left-5 bg-transparent border border-violet-500 text-violet-500 hover:text-white hover:bg-violet-500 px-5 py-3 m-1 rounded-xl ${
-                FilteredProjs.length < 2 || ActiveProjectIndex.value === 0
+                FilteredProjs.projects.length < 2 ||
+                ActiveProjectIndex.value === 0
                   ? "hidden"
                   : "flex"
               } items-center gap-3 transtion-all duration-200 scale-100 active:scale-95`}
@@ -199,7 +209,6 @@ export default component$(() => {
                 CarouselStyle.value -= CarouselWidthValue;
                 ActiveProjectIndex.value =
                   CarouselStyle.value / CarouselWidthValue;
-                console.log(ActiveProjectIndex);
               }}
             >
               <svg
@@ -215,8 +224,8 @@ export default component$(() => {
             </button>
             <button
               class={`next absolute bottom-5 right-5 bg-transparent border border-violet-500 text-violet-500 hover:text-white hover:bg-violet-500 px-5 py-3 m-1 rounded-xl ${
-                FilteredProjs.length < 2 ||
-                ActiveProjectIndex.value === FilteredProjs.length - 1
+                FilteredProjs.projects.length < 2 ||
+                ActiveProjectIndex.value === FilteredProjs.projects.length - 1
                   ? "hidden"
                   : "flex"
               } items-center gap-3 transtion-all duration-200 scale-100 active:scale-95`}
@@ -227,7 +236,7 @@ export default component$(() => {
                 if (CarouselWidthValue === 0) return;
                 if (
                   CarouselStyle.value / CarouselWidthValue ===
-                  FilteredProjs.length - 1
+                  FilteredProjs.projects.length - 1
                 ) {
                   return;
                 }
@@ -235,8 +244,6 @@ export default component$(() => {
                 CarouselStyle.value += CarouselWidthValue;
                 ActiveProjectIndex.value =
                   CarouselStyle.value / CarouselWidthValue;
-                // CarouselWidth.value.scrollLeft = 20;
-                console.log(ActiveProjectIndex);
               }}
             >
               <span>Next</span>
@@ -253,13 +260,15 @@ export default component$(() => {
           </div>
           <div class="project-details md-lg:w-1/3 flex sm:flex-row flex-col md-lg:flex-col md-lg:items-start items-center justify-center text-center gap-3 p-10">
             <h1 class="font-semibold text-xl lg:text-3xl">
-              <span>{FilteredProjs[ActiveProjectIndex.value].Title}</span>
+              <span>
+                {FilteredProjs.projects[ActiveProjectIndex.value].Title}
+              </span>
             </h1>
             <p class="md-lg:border-none text-gray-400 md-lg:text-left text-center text-sm md-lg:text-md px-0 sm:px-3 md-lg:px-0 sm:border-x border-gray-600">
-              {FilteredProjs[ActiveProjectIndex.value].Description}
+              {FilteredProjs.projects[ActiveProjectIndex.value].Description}
             </p>
             <a
-              href={FilteredProjs[ActiveProjectIndex.value].Url}
+              href={FilteredProjs.projects[ActiveProjectIndex.value].Url}
               class="px-6 py-2 w-fit bg-violet-500 text-sm rounded-full active:scale-95 hover:bg-violet-600 transition-all duration-250"
             >
               Visit

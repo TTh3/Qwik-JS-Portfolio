@@ -52,7 +52,7 @@ export default component$(() => {
       </div>
       <div className="xl:w-5/6 w-full flex flex-col">
         {events.events.map(({ Title, Description, Date, TextDate }, index) => (
-          <li
+          <div
             class={`w-full flex md-lg:flex-row flex-col border-gray-800${
               events.events.length !== index + 1 ? " border-b " : " "
             }justify-between md-lg:items-center gap-2 lg:gap-10 px-6 sm:px-12 py-10 lg:py-16 list-none`}
@@ -75,7 +75,7 @@ export default component$(() => {
               </div>
             </div>
             <span class="text-gray-600 text-center">{TextDate}</span>
-          </li>
+          </div>
         ))}
       </div>
     </div>
