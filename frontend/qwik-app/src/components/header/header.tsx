@@ -2,81 +2,71 @@ import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import BgDesign from "./bg_design.jpg";
 
-export default component$(() => {
+export default component$(({ ChatVisibility }) => {
   return (
     <header
-      class="relative flex flex-col w-full min-h-screen overflow-hidden border-b border-gray-800"
+      className="relative flex flex-col w-full min-h-screen overflow-hidden border-b border-gray-800"
       style={"background-image:url('" + BgDesign + "')"}
     >
-      <nav class="w-full flex items-center border-b border-gray-800">
-        <div class="md:lg:w-2/3 flex items-center">
-          <h1 class="text-xl font-bold px-10">
-            Js<span class="text-violet-500">.</span>
+      <nav className="w-full flex items-center border-b border-gray-800">
+        <div className="md:w-2/3 w-1/2 grow flex md:justify-left justify-center items-center">
+          <h1 className="text-xl font-bold px-10">
+            Js<span className="text-violet-500">.</span>
           </h1>
-          <ul class="hidden md-lg:flex w-full justify-center gap-5 border-x border-gray-800 py-10 h-full">
+          <ul className="hidden md:flex w-full justify-center md-lg:gap-5 gap-1 border-x border-gray-800 py-10 h-full">
             <a
               href="#About"
-              class="font-semibold text-sm text-gray-400 px-10 hover:text-violet-500 transition ease duration-250"
+              className="font-semibold text-sm text-gray-400 px-10 hover:text-violet-500 transition ease duration-250"
             >
               ABOUT
             </a>
             <a
               href="#Projects"
-              class="font-semibold text-sm text-gray-400 px-10 border-x border-gray-800 hover:text-violet-500 transition ease duration-250"
+              className="font-semibold text-sm text-gray-400 px-10 border-x border-gray-800 hover:text-violet-500 transition ease duration-250"
             >
               PROJECTS
             </a>
             <a
               href="#Events"
-              class="font-semibold text-sm text-gray-400 px-10 hover:text-violet-500 transition ease duration-250"
+              className="font-semibold text-sm text-gray-400 px-10 hover:text-violet-500 transition ease duration-250"
             >
               EVENTS
             </a>
           </ul>
         </div>
-        <div class="md:lg:w-1/3 flex items-center h-full grow">
-          <button class="text-gray-400 h-[100px] grow flex justify-center border-l border-gray-800 items-center hover:text-white transition duration-250">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              fill="currentColor"
-              class="bi bi-brightness-alt-high"
-              viewBox="0 0 16 16"
-            >
-              <path d="M8 3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 3zm8 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zm-13.5.5a.5.5 0 0 0 0-1h-2a.5.5 0 0 0 0 1h2zm11.157-6.157a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm-9.9 2.121a.5.5 0 0 0 .707-.707L3.05 5.343a.5.5 0 1 0-.707.707l1.414 1.414zM8 7a4 4 0 0 0-4 4 .5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5 4 4 0 0 0-4-4zm0 1a3 3 0 0 1 2.959 2.5H5.04A3 3 0 0 1 8 8z" />
-            </svg>
-          </button>
-          <Link
-            href="."
-            class="text-center w-2/3 py-10 border-l border-gray-800 text-sm font-semibold text-gray-400 hover:bg-violet-500 hover:text-white ease-out transition duration-400"
+        <div className="md:w-1/3 w-1/2 md:border-none border-l border-gray-800 flex items-center h-full grow">
+          <button
+            className="text-center w-full py-10 text-sm font-semibold text-gray-400 hover:bg-violet-500 hover:text-white ease-out transition duration-400"
+            onClick$={() => {
+              ChatVisibility.value = true;
+            }}
           >
             <span>CHAT WITH ME</span>
-          </Link>
+          </button>
         </div>
       </nav>
-      <div class="h-full w-full flex flex-col grow lg:flex-row">
-        <div class="flex-col grow flex justify-between w-full lg:w-2/3 border-b lg:border-b-0 lg:border-r border-gray-800">
-          <div class="h-full flex justify-center items-center py-32 px-10">
-            <div class="flex flex-col gap-4">
-              <h1 class="text-3xl sm:text-5xl font-bold">
-                Jsilverio<span class="text-violet-500">.</span>
+      <div className="h-full w-full flex flex-col grow lg:flex-row">
+        <div className="flex-col grow flex justify-between w-full lg:w-2/3 border-b lg:border-b-0 lg:border-r border-gray-800">
+          <div className="h-full flex justify-center items-center py-32 px-10">
+            <div className="flex flex-col gap-4">
+              <h1 className="text-3xl sm:text-5xl font-bold">
+                Jsilverio<span className="text-violet-500">.</span>
               </h1>
-              <p class="text-md sm:text-xl font-medium text-gray-400">
+              <p className="text-md sm:text-xl font-medium text-gray-400">
                 An Open Minded Student, Soon-to-be Fullstack Dev
               </p>
               <a
                 href="#About"
-                class="px-5 py-2 sm:text-md text-sm bg-violet-600 font-semibold w-fit hover:bg-violet-800 active:scale-95 transition-all ease duration-250 rounded-full"
+                className="px-5 py-2 sm:text-md text-sm bg-violet-600 font-semibold w-fit hover:bg-violet-800 active:scale-95 transition-all ease duration-250 rounded-full"
               >
                 SHOW MORE
               </a>
             </div>
           </div>
-          <div class="w-full flex justify-around h-fit p-5 border-t border-gray-800 text-gray-400">
+          <div className="w-full flex justify-around h-fit p-5 border-t border-gray-800 text-gray-400">
             <a
               href="."
-              class="w-full flex justify-center hover:text-violet-400 transition ease duration-250"
+              className="w-full flex justify-center hover:text-violet-400 transition ease duration-250"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +80,7 @@ export default component$(() => {
             </a>
             <a
               href="."
-              class="border-x border-gray-800 w-full flex justify-center hover:text-violet-400 transition ease duration-250"
+              className="border-x border-gray-800 w-full flex justify-center hover:text-violet-400 transition ease duration-250"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +97,7 @@ export default component$(() => {
             </a>
             <a
               href="."
-              class="w-full flex justify-center hover:text-violet-400 transition ease duration-250"
+              className="w-full flex justify-center hover:text-violet-400 transition ease duration-250"
             >
               <svg
                 fill="currentColor"
@@ -121,14 +111,14 @@ export default component$(() => {
             </a>
           </div>
         </div>
-        <div class="w-full lg:w-1/3 flex flex-col sm:flex-row lg:flex-col justify-between lg:items-center">
-          <div class="w-full py-10 lg:p-5 border-b sm:border-r lg:border-b border-gray-800">
-            <h1 class="font-semibold text-sm text-gray-400 text-center mb-3">
+        <div className="w-full lg:w-1/3 flex flex-col sm:flex-row lg:flex-col justify-between lg:items-center">
+          <div className="w-full py-10 lg:p-5 border-b sm:border-r lg:border-b border-gray-800">
+            <h1 className="font-semibold text-sm text-gray-400 text-center mb-3">
               I AM
             </h1>
-            <div class="flex items-center justify-center my-auto">
-              <h2 class="font-bold text-gray-800 text-8xl pr-10">A</h2>
-              <ul class="list-[circle] ml-2">
+            <div className="flex items-center justify-center my-auto">
+              <h2 className="font-bold text-gray-800 text-8xl pr-10">A</h2>
+              <ul className="list-[circle] ml-2">
                 <li>Year 11 Student</li>
                 <li>Frontend Developer</li>
                 <li>UI Developer</li>
@@ -136,16 +126,16 @@ export default component$(() => {
               </ul>
             </div>
           </div>
-          <div class="w-full h-full py-10 lg:p-5 flex justify-center items-center">
-            <div class="w-fit">
-              <h1 class="font-semibold text-sm text-gray-400 mb-2 text-center">
+          <div className="w-full h-full py-10 lg:p-5 flex justify-center items-center">
+            <div className="w-fit">
+              <h1 className="font-semibold text-sm text-gray-400 mb-2 text-center">
                 TODO
               </h1>
-              <div class="mb-2">
-                <span class="font-semibold text-xs text-main-colour px-2 py-0.5 rounded-full bg-gray-400">
+              <div className="mb-2">
+                <span className="font-semibold text-xs text-main-colour px-2 py-0.5 rounded-full bg-gray-400">
                   Life
                 </span>
-                <ul class="text-sm mt-1 list-decimal">
+                <ul className="text-sm mt-1 list-decimal">
                   <li>Smash the school exams</li>
                   <li>Get a part-time job</li>
                   <li>Learn backend programming stuff</li>
@@ -153,10 +143,10 @@ export default component$(() => {
                 </ul>
               </div>
               <div>
-                <span class="font-semibold text-xs text-main-colour px-2 py-0.5 rounded-full bg-gray-400">
+                <span className="font-semibold text-xs text-main-colour px-2 py-0.5 rounded-full bg-gray-400">
                   Website
                 </span>
-                <ul class="text-sm mt-1 list-decimal">
+                <ul className="text-sm mt-1 list-decimal">
                   <li>Add Animations</li>
                   <li>Get Better Website Photo Shots</li>
                 </ul>

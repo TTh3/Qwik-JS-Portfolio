@@ -90,20 +90,20 @@ export default component$(() => {
 
   });
   return (
-    <div class="Projects w-full border-b border-gray-800">
+    <div className="Projects w-full border-b border-gray-800">
       <div
         id="Projects"
-        class="text-center text-2xl font-bold px-12 py-6 text-white"
+        className="text-center text-2xl font-bold px-12 py-6 text-white"
       >
-        <h1 class="bg-violet-600 px-8 block mx-auto py-6 rounded w-fit shadow">
-          Project
+        <h1 className="bg-violet-600 px-8 block mx-auto py-6 rounded w-fit shadow">
+          Projects
         </h1>
       </div>
-      <div class="flex flex-col">
-        <div class="projects-filter flex flex-col gap-2 justify-center items-center px-5 py-10 border-y border-gray-800 transtion-all duration-200">
-          <label for="project_search" class="flex items-center gap-2">
+      <div className="flex flex-col">
+        <div className="projects-filter flex flex-col gap-2 justify-center items-center px-5 py-10 border-y border-gray-800 transtion-all duration-200">
+          <label for="project_search" className="flex items-center gap-2">
             <button
-              class="py-3 px-4 rounded-lg bg-violet-500 active:scale-95 text-white transition-all duration-200 hover:bg-violet-600"
+              className="py-3 px-4 rounded-lg bg-violet-500 active:scale-95 text-white transition-all duration-200 hover:bg-violet-600"
               onClick$={() => {
                 const SearchInputval = SearchInput.value?.value
                   ? SearchInput.value?.value
@@ -116,7 +116,7 @@ export default component$(() => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-search"
+                className="bi bi-search"
                 viewBox="0 0 16 16"
               >
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -125,7 +125,7 @@ export default component$(() => {
             <input
               type="text"
               ref={SearchInput}
-              class="appearance-none bg-transparent border-b border-violet-500 mr-3 py-2 leading-tight focus:outline-none"
+              className="appearance-none bg-transparent border-b border-violet-500 mr-3 py-2 leading-tight focus:outline-none"
               placeholder="Search Projects"
               id="project_search"
               onKeyPress$={(e) => {
@@ -152,7 +152,7 @@ export default component$(() => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-arrow-clockwise"
+              className="bi bi-arrow-clockwise"
               viewBox="0 0 16 16"
             >
               <path
@@ -169,9 +169,9 @@ export default component$(() => {
             </span>
           </button>
         </div>
-        <div class="flex md-lg:flex-row flex-col">
+        <div className="flex md-lg:flex-row flex-col">
           <div
-            class="md-lg:w-2/3 h-96 border-r border-gray-800 relative overflow-hidden"
+            className="md-lg:w-2/3 h-96 border-r border-gray-800 relative overflow-hidden"
             ref={CarouselWidth}
           >
             <div
@@ -191,7 +191,7 @@ export default component$(() => {
               })}
             </div>
             <button
-              class={`prev absolute bottom-5 left-5 bg-transparent border border-violet-500 text-violet-500 hover:text-white hover:bg-violet-500 px-5 py-3 m-1 rounded-xl ${
+              className={`prev absolute bottom-5 left-5 bg-transparent border border-violet-500 text-violet-500 hover:text-white hover:bg-violet-500 px-5 py-3 m-1 rounded-xl ${
                 FilteredProjs.projects.length < 2 ||
                 ActiveProjectIndex.value === 0
                   ? "hidden"
@@ -223,7 +223,7 @@ export default component$(() => {
               <span>Prev</span>
             </button>
             <button
-              class={`next absolute bottom-5 right-5 bg-transparent border border-violet-500 text-violet-500 hover:text-white hover:bg-violet-500 px-5 py-3 m-1 rounded-xl ${
+              className={`next absolute bottom-5 right-5 bg-transparent border border-violet-500 text-violet-500 hover:text-white hover:bg-violet-500 px-5 py-3 m-1 rounded-xl ${
                 FilteredProjs.projects.length < 2 ||
                 ActiveProjectIndex.value === FilteredProjs.projects.length - 1
                   ? "hidden"
@@ -258,18 +258,18 @@ export default component$(() => {
               </svg>
             </button>
           </div>
-          <div class="project-details md-lg:w-1/3 flex sm:flex-row flex-col md-lg:flex-col md-lg:items-start items-center justify-center text-center gap-3 p-10">
-            <h1 class="font-semibold text-xl lg:text-3xl">
+          <div className="project-details md-lg:w-1/3 flex sm:flex-row flex-col md-lg:flex-col md-lg:items-start items-center justify-center text-center gap-3 p-10">
+            <h1 className="font-semibold text-xl lg:text-3xl">
               <span>
                 {FilteredProjs.projects[ActiveProjectIndex.value].Title}
               </span>
             </h1>
-            <p class="md-lg:border-none text-gray-400 md-lg:text-left text-center text-sm md-lg:text-md px-0 sm:px-3 md-lg:px-0 sm:border-x border-gray-600">
+            <p className="md-lg:border-none text-gray-400 md-lg:text-left text-center text-sm md-lg:text-md px-0 sm:px-3 md-lg:px-0 sm:border-x border-gray-600">
               {FilteredProjs.projects[ActiveProjectIndex.value].Description}
             </p>
             <a
               href={FilteredProjs.projects[ActiveProjectIndex.value].Url}
-              class="px-6 py-2 w-fit bg-violet-500 text-sm rounded-full active:scale-95 hover:bg-violet-600 transition-all duration-250"
+              className="px-6 py-2 w-fit bg-violet-500 text-sm rounded-full active:scale-95 hover:bg-violet-600 transition-all duration-250"
             >
               Visit
             </a>

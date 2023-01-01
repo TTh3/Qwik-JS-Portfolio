@@ -41,6 +41,9 @@
     "vite-tsconfig-paths": "3.5.0"
   },
   "dependencies": {
-    "cssnano": "^5.1.14"
+    "cssnano": "^5.1.14",
+    "firebase": "^9.15.0",
+    "react-firebase-hooks": "^5.1.1",
+    "react-google-button": "^0.7.2"
   }
 }
