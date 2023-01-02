@@ -37,7 +37,7 @@ export default component$(({ ChatVisibility }: any) => {
           <button
             className="text-center w-full py-10 text-sm font-semibold text-gray-400 hover:bg-violet-500 hover:text-white ease-out transition duration-400"
             onClick$={() => {
-              ChatVisibility.value = true;
+              ChatVisibility.value = "flex";
             }}
           >
             <span>CHAT WITH ME</span>

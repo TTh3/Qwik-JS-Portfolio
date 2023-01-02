@@ -21,7 +21,6 @@ import {
 } from "firebase/firestore";
 
 export default component$(({ ChatVisibility }) => {
-  if (!ChatVisibility.value) return;
   const authDetails = useStore({ userDetails: {} });
   const Messages = useStore({ messages: [] });
   const MsgInputRef = useSignal();
@@ -42,13 +41,13 @@ export default component$(({ ChatVisibility }) => {
     return () => unsubscribe();
   });
   return (
-    <div className="flex ChatWrapper bottom-0 w-full overflow-y-auto fixed z-10">
+    <div className={`${ChatVisibility.value} ChatWrapper bottom-0 w-full overflow-y-auto fixed z-10`}>
       <div className="Chat lg:w-1/2 w-5/6 md-lg:w-2/3 min-h-[400px] h-[80vh] rounded-xl overflow-hidden flex relative">
         <button
           aria-label="Exit Chat"
           className="ExitBtn absolute top-5 bg-violet-500 hover:bg-violet-600 active:scale-95 transtion-all ease duration-200 flex right-5 p-1 rounded-full z-10"
           onClick$={() => {
-            ChatVisibility.value = false;
+            ChatVisibility.value = "hidden";
           }}
         >
           <svg

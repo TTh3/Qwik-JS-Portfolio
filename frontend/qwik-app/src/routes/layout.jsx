@@ -9,7 +9,7 @@ import Footer from "~/components/footer/Footer";
 import Chat from "~/components/chat/Chat";
 
 export default component$(() => {
-  const ChatVisibility = useSignal(false);
+  const ChatVisibility = useSignal("hidden");
 
   return (
     <div
