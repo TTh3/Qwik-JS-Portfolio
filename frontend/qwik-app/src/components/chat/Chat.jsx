@@ -1,3 +1,4 @@
+/* eslint-disable qwik/valid-lexical-scope */
 import {
   component$,
   useStore,
@@ -23,8 +24,8 @@ export default component$(({ ChatVisibility }) => {
   if (!ChatVisibility.value) return;
   const authDetails = useStore({ userDetails: {} });
   const Messages = useStore({ messages: [] });
-  const MsgInputRef = useSignal<Element>();
-  const MsgAutoScrollRef = useSignal<Element>();
+  const MsgInputRef = useSignal();
+  const MsgAutoScrollRef = useSignal();
   useClientEffect$(() => {
     const q = query(collection(db, "messages"), orderBy("timestamp"));
 

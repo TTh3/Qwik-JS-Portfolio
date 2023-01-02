@@ -1,4 +1,5 @@
-import { component$, useClientEffect$, useSignal } from "@builder.io/qwik";
+
+import { component$, useSignal } from "@builder.io/qwik";
 import Header from "../components/header/header";
 import Languages from "~/components/languages/Languages";
 import About from "~/components/about/About";
@@ -8,7 +9,7 @@ import Footer from "~/components/footer/Footer";
 import Chat from "~/components/chat/Chat";
 
 export default component$(() => {
-  const ChatVisibility = useSignal<boolean>(false);
+  const ChatVisibility = useSignal(false);
 
   return (
     <div

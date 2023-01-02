@@ -1,8 +1,7 @@
 import { component$ } from "@builder.io/qwik";
-import { Link } from "@builder.io/qwik-city";
 import BgDesign from "./bg_design.jpg";
 
-export default component$(({ ChatVisibility }) => {
+export default component$(({ ChatVisibility }: any) => {
   return (
     <header
       className="relative flex flex-col w-full min-h-screen overflow-hidden border-b border-gray-800"
