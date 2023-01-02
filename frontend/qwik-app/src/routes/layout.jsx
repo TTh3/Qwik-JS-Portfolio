@@ -14,7 +14,7 @@ export default component$(() => {
   return (
     <div
       className={`App${
-        ChatVisibility.value ? " h-screen overflow-hidden" : ""
+        ChatVisibility.value!=="hidden" ? " h-screen overflow-hidden" : ""
       }`}
     >
       <Chat ChatVisibility={ChatVisibility} />
