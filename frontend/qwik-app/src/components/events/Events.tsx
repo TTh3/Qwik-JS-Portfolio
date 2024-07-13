@@ -1,21 +1,11 @@
 import {
   component$,
-  useClientEffect$,
-  useMount$,
   useSignal,
-  useStore,
 } from "@builder.io/qwik";
 
-interface Event {
-  id: number;
-  Title: string;
-  Description: string;
-  Date: string;
-  TextDate: string;
-}
 
-export default component$(({ Events }) => {
-  const events = useSignal({});
+export default component$(({ Events }:any) => {
+  const events = useSignal<any>({});
   if (Events.value.Events !== undefined) {
     events.value = Events.value.Events;
     console.log("Real time action: ", events.value);
@@ -51,7 +41,7 @@ export default component$(({ Events }) => {
       </div>
       <div className="xl:w-5/6 w-full flex flex-col">
         {Object.keys(events.value).length !== 0 ? (
-          events.value.map(({ Title, Description, Date, TextDate }, index) => (
+          events.value.map(({ Title, Description, Date, TextDate }:any, index:number) => (
             <div
               className={`w-full flex md-lg:flex-row flex-col border-gray-800${
                 events.value.length !== index + 1 ? " border-b " : " "

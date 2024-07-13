@@ -2,7 +2,6 @@ import {
   component$,
   useClientEffect$,
   useSignal,
-  useStore,
 } from "@builder.io/qwik";
 import Header from "../components/header/header";
 import Languages from "~/components/languages/Languages";
