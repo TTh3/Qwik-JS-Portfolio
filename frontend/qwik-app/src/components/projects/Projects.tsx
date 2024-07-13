@@ -4,7 +4,18 @@ export default component$(() => {
   const ProjectList = {
     projects: [
       {
-        Id: "0",
+        "Id": "0",
+        "Url": "https://spmsph.com",
+        "Date": "2023-11-16",
+        "Tags": ["Main", "NextJS", "HTML", "JS", "CSS"],
+        "Image": "https://i.ibb.co/tmr54PM/spmsph-site.png",
+        "Theme": "primary",
+        "Title": "St. Peter's Men Society",
+        "UrlTitle": "stpetersmensociety",
+        "Description": "My most recent project that I am working on for a Catholic Philippines Facebook group."
+      },
+      {
+        Id: "1",
         Url: "https://jaylordsilverioproweb.netlify.app/",
         Date: "2021-05-28",
         Tags: ["Main", "HTML", "JS", "CSS"],
@@ -16,7 +27,7 @@ export default component$(() => {
           "This was my first website that was actually thought-out okay and this was also a start for me to learn and gather design knowledge and inspirations.",
       },
       {
-        Id: "1",
+        Id: "2",
         Url: "https://silveriofrontendnotesapp.netlify.app/",
         Date: "2022-02-10",
         Tags: ["Main", "React", "HTML", "JS", "CSS"],
@@ -28,7 +39,7 @@ export default component$(() => {
           "This is my first ever successful notes app built with Reactjs on the frontend and Django in the backend. The two code sources was separately hosted, one in netlify and the other one in Heroku.",
       },
       {
-        Id: "2",
+        Id: "3",
         Url: "https://noreessweetdoughandbatter.netlify.app/",
         Date: "2022-03-29",
         Tags: ["Main", "React", "HTML", "JS", "CSS"],
@@ -40,7 +51,7 @@ export default component$(() => {
           "We sell varieties of cake and breads considering our clients' preferences.",
       },
       {
-        Id: "3",
+        Id: "4",
         Url: "https://austateservicesau.netlify.app/",
         Date: "2021-10-19",
         Tags: ["HTML", "JS", "CSS"],
@@ -52,7 +63,7 @@ export default component$(() => {
           "At auSTATE Services we specialise in custom manufacture of Truck Bodies, Trailers, modifications for your prized items. We also specialise in the repair and restoration of heavy vehicles in addition to Trailer Hire, Sales and Servicing.",
       },
       {
-        Id: "4",
+        Id: "5",
         Url: "https://jsilverio.vercel.app/",
         Date: "2022-06-10",
         Tags: ["Main", "NextJS", "JSX", "CSS"],

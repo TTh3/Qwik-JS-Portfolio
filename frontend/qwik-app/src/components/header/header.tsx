@@ -118,7 +118,7 @@ export default component$(({ ChatVisibility }: any) => {
             <div className="flex items-center justify-center my-auto">
               <h2 className="font-bold text-gray-800 text-8xl pr-10">A</h2>
               <ul className="list-[circle] ml-2">
-                <li>Year 11 Student</li>
+                <li>Software Engineer</li>
                 <li>Frontend Developer</li>
                 <li>UI Developer</li>
                 <li>Critical Thinker</li>
@@ -135,19 +135,19 @@ export default component$(({ ChatVisibility }: any) => {
                   Life
                 </span>
                 <ul className="text-sm mt-1 list-decimal">
-                  <li>Smash the school exams</li>
+                  <li>Focus and Grind Studies</li>
                   <li>Get a part-time job</li>
                   <li>Learn backend programming stuff</li>
-                  <li>Create a cool game using Python</li>
                 </ul>
               </div>
               <div>
                 <span className="font-semibold text-xs text-main-colour px-2 py-0.5 rounded-full bg-gray-400">
-                  Website
+                Skill
                 </span>
                 <ul className="text-sm mt-1 list-decimal">
-                  <li>Add Animations</li>
-                  <li>Get Better Website Photo Shots</li>
+                  <li>Improve Catholic Site, SPMS</li>
+                  <li>Practice Coding Problems</li>
+                  <li>Master Coding Languages</li>
                 </ul>
               </div>
             </div>
