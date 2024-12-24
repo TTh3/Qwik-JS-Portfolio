@@ -15,7 +15,7 @@
   "Projects": [
     {
       "Id": "0",
-      "Url": "https://spmsph.com",
+      "Url": "https://spms.netlify.app",
       "Date": "2023-11-16",
       "Tags": ["Main", "NextJS", "HTML", "JS", "CSS"],
       "Image": "https://i.ibb.co/tmr54PM/spmsph-site.png",
