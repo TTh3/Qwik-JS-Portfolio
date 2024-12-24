@@ -1,10 +1,10 @@
 import { component$, useStore } from "@builder.io/qwik";
-import PersonalPhoto from "./personalphoto.png";
+import PersonalPhoto from "./personalphoto.jpg";
 
 export default component$(() => {
   const description = useStore({
     buttonDisplay: "block",
-    text: "I like to believe that I am open minded and a critical thinker. I like to be around with mates and work alongside them I am a 1st Year Software Engineering Student and a website developer that is currently looking out for a part time job to financially support my future expenses in University and eventually, help my parents with the costs of our future house...",
+    text: "I like to believe that I am open minded and a critical thinker. I like to be around with mates and work alongside them. I am a 1st Year Software Engineering Student and a website developer that is currently looking out for a part time job to financially support my future expenses in University and eventually, help my parents with the costs of our future house...",
   });
   // function FullDescriptionToggle() {
   //   description.buttonDisplay = "hidden";
@@ -24,9 +24,7 @@ export default component$(() => {
       <div className="flex flex-col md-lg:flex-row border-t border-gray-800">
         <div className="w-full md-lg:w-2/3 flex flex-col border-b md-lg:border-b-0 border-r border-gray-800">
           <div className="h-fit border-b border-gray-800 py-16 px-10">
-            <h2 className="font-semibold text-2xl">
-              Hi! My name is Jaylord Silverio
-            </h2>
+            <h2 className="font-semibold text-2xl">Hi! My name is Jaylord</h2>
             <p className="text-gray-400 text-justify my-5">
               {description.text}
             </p>
@@ -35,7 +33,7 @@ export default component$(() => {
               onClick$={() => {
                 description.buttonDisplay = "hidden";
                 description.text =
-                  "I like to believe that I am open minded and a critical thinker. I like to be around with mates and work alongside them I am a 1st Year Software Engineering Student and a website developer that is currently looking out for a part time job to financially support my future expenses in University and eventually, help my parents with the costs of our future house. Partaking and adapting in new challenges has always been a part in my list of strengths. I believe that at any task, my mates can rely on me to complete them to the best of my abilities. I believe that failure is not the end, but rather a strong step on the road to success.";
+                  "I like to believe that I am open minded and a critical thinker. I like to be around with mates and work alongside them. I am a 1st Year Software Engineering Student and a website developer that is currently looking out for a part time job to financially support my future expenses in University and eventually, help my parents with the costs of our future house. Partaking and adapting in new challenges has always been a part in my list of strengths. I believe that at any task, my mates can rely on me to complete them to the best of my abilities. I believe that failure is not the end, but rather a strong step on the road to success.";
               }}
             >
               continue reading
@@ -54,7 +52,7 @@ export default component$(() => {
           <div className="h-fit w-full flex justify-center border-b border-gray-800 py-16 px-12">
             <img
               src={PersonalPhoto}
-              className="w-full object-contain h-64 rounded overflow-hidden"
+              className="object-contain h-64 rounded-lg overflow-hidden"
               alt="Personal Photo"
             />
           </div>

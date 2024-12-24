@@ -83,17 +83,17 @@
   "Events": [
     {
       "id": 0,
-      "Title": "Back to University - Semester II",
-      "Description": "Time to lock in!",
-      "Date": "22/07/2024",
-      "TextDate": "July 22, 2024"
+      "Title": "Holiday At New Zeland",
+      "Description": "A 2-week trip to chill and celebrate my loved one's birthday!",
+      "Date": "15/01/2025",
+      "TextDate": "January 15, 2024"
     },
     {
       "id": 1,
-      "Title": "Halloween 2024",
-      "Description": "Spooky Time of the Year Ooh",
-      "Date": "31/10/2024",
-      "TextDate": "October 31, 2024"
+      "Title": "Back to University - 2nd Year!",
+      "Description": "Time to lock in!",
+      "Date": "25/02/2025",
+      "TextDate": "February 25, 2024"
     }
   ],
   "Blogs": [

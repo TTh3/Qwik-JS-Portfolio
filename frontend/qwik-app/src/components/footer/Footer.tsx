@@ -7,7 +7,7 @@ export default component$(() => {
       <p className="md-lg:border-x border-gray-800 text-gray-400 text-center">
         Chill & Cool Web Dev
       </p>
-      <span className="text-center text-gray-600">Made in 2024</span>
+      <span className="text-center text-gray-600">Made in 2025</span>
     </div>
   );
 });
